@@ -440,7 +440,7 @@ static int nonce_function_bipschnorr(unsigned char *nonce32, const unsigned char
         secp256k1_sha256_write(&sha, algo16, 16);
     }
     if (data != NULL) {
-        secp256k1_sha256_write(&sha, data, 32);
+        secp256k1_sha256_write(&sha, (unsigned char *)data, 32);
     }
     secp256k1_sha256_finalize(&sha, nonce32);
     return 1;
